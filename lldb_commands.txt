@@ -4,3 +4,4 @@ r
 frame variable self
 c
 frame variable self
+p self

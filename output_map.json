@@ -1,3 +1,8 @@
-{'src/foo.swift': {'object': 'out/foo.o'},
- 'src/bar.swift': {'object': 'out/bar.o'},
+{
+  "src/foo.swift": {
+    "object": "out/foo.o"
+  },
+  "src/bar.swift": {
+    "object": "out/bar.o"
+  }
 }

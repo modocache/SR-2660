@@ -1,10 +1,13 @@
 set -e
 set -x
 
-SWIFTC="$HOME/local/Source/apple/build/Ninja-ReleaseAssert+swift-DebugAssert/swift-macosx-x86_64/bin/swiftc"
+SWIFTC="$HOME/local/Source/apple/build/Ninja-ReleaseAssert/swift-macosx-x86_64/bin/swiftc"
 SWIFT_SDK="$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk"
 SWIFT_LIB="$(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx"
-CLANG="$HOME/local/Source/apple/build/Ninja-ReleaseAssert+swift-DebugAssert/llvm-macosx-x86_64/bin/clang"
+CLANG="$HOME/local/Source/apple/build/Ninja-ReleaseAssert/llvm-macosx-x86_64/bin/clang"
+LLDB="$HOME/local/Source/apple/build/Ninja-ReleaseAssert/lldb-macosx-x86_64/CustomSwift-Release/lldb"
+
+mkdir -p out
 
 # Build Swift modules with debug info.
 $SWIFTC -c -g src/foo.swift \
@@ -35,4 +38,4 @@ $CLANG src/main.m -fobjc-arc -o out/main out/foo.o out/bar.o \
   -Xlinker -add_ast_path -Xlinker out/Bar.swiftmodule
 
 # Run LLDB commands.
-lldb out/main -b -s lldb_commands.txt
+$LLDB out/main -b -s lldb_commands.txt
