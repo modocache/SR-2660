@@ -1,0 +1,8 @@
+{
+  "buck-example-src/foo.swift": {
+    "object": "Foo.swiftmodule/foo.o"
+  },
+  "buck-example-src/bar.swift": {
+    "object": "Bar.swiftmodule/bar.o"
+  }
+}
